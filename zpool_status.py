@@ -3,6 +3,8 @@
 # Inspired by: https://github.com/dev-sngy/zpool_status
 #
 # Cp. zpool-status(1), zpoolconcepts(7).
+#
+# Copyright (c) 2024, Lars Gustäbel <lars@gustaebel.de>
 
 """Parse output from 'zpool status'.
 """
