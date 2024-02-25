@@ -164,7 +164,11 @@ class ZPool:
         for name, start, end in self._get_header_columns(header_line, line):
             value = line[start:end].strip()
 
-            if value == "-":
+            if not value:
+                # Do not include empty values in the device info.
+                pass
+
+            elif value == "-":
                 device_info[name] = None
 
             elif name in ("read", "write", "cksum", "size"):
@@ -173,12 +177,8 @@ class ZPool:
                 except ValueError:
                     device_info[name] = value
 
-            elif value:
-                device_info[name] = value
-
             else:
-                # Do not include empty values in the device info.
-                pass
+                device_info[name] = value
 
         return device_info
 
