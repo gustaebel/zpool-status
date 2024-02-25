@@ -70,6 +70,18 @@ class ZPool:
                 for name in subprocess.check_output(["zpool", "list", "-H"], text=True)\
                         .splitlines()]
 
+    def walk(self, config=None):
+        """Walk over all virtual and regular devices in the pool.
+        """
+        if config is None:
+            config = self.get_status()["config"]
+
+        for device in config:
+            yield device
+            for key in "virtual devices", "devices":
+                if key in device:
+                    yield from self.walk(device[key])
+
     def get_status(self):
         """Return the output of 'zpool status <name>' as a dictionary.
         """
