@@ -1,0 +1,65 @@
+{
+  "pool": "pool",
+  "state": "DEGRADED",
+  "status": "The pool is formatted using an older on-disk format. The pool can still be used, but some features are unavailable.",
+  "action": "Upgrade the pool using 'zpool upgrade'. Once this is done, the pool will no longer be accessible on older software versions.",
+  "scrub": "none requested",
+  "config": [
+    {
+      "name": "pool",
+      "state": "DEGRADED",
+      "read": 0,
+      "write": 0,
+      "cksum": 0,
+      "type": "pool",
+      "virtual devices": [
+        {
+          "name": "mirror-0",
+          "state": "DEGRADED",
+          "read": 0,
+          "write": 0,
+          "cksum": 0,
+          "type": "virtual device",
+          "devices": [
+            {
+              "name": "c1t0d0s6",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "type": "device"
+            },
+            {
+              "name": "replacing-1",
+              "state": "UNAVAIL",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "message": "insufficient replicas",
+              "type": "virtual device",
+              "devices": [
+                {
+                  "name": "c1t1d0s6/old",
+                  "state": "OFFLINE",
+                  "read": 0,
+                  "write": 0,
+                  "cksum": 0,
+                  "type": "device"
+                },
+                {
+                  "name": "c1t1d0s6",
+                  "state": "UNAVAIL",
+                  "read": 0,
+                  "write": 342,
+                  "cksum": 0,
+                  "message": "experienced I/O failures",
+                  "type": "device"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

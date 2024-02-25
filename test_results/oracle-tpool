@@ -1,0 +1,37 @@
+{
+  "pool": "tpool",
+  "state": "FAULTED",
+  "status": "The pool metadata is corrupted and the pool cannot be opened.",
+  "action": "Recovery is possible, but will result in some data loss. Returning the pool to its state as of Wed Jul 14 11:44:10 2010 should correct the problem. Approximately 5 seconds of data must be discarded, irreversibly. Recovery can be attempted by executing 'zpool clear -F tpool'. A scrub of the pool is strongly recommended after recovery.",
+  "see": "http://www.sun.com/msg/ZFS-8000-72",
+  "scrub": "none requested",
+  "config": [
+    {
+      "name": "tpool",
+      "state": "FAULTED",
+      "read": 0,
+      "write": 0,
+      "cksum": 1,
+      "message": "corrupted data",
+      "type": "pool",
+      "devices": [
+        {
+          "name": "c1t1d0",
+          "state": "ONLINE",
+          "read": 0,
+          "write": 0,
+          "cksum": 2,
+          "type": "device"
+        },
+        {
+          "name": "c1t3d0",
+          "state": "ONLINE",
+          "read": 0,
+          "write": 0,
+          "cksum": 4,
+          "type": "device"
+        }
+      ]
+    }
+  ]
+}

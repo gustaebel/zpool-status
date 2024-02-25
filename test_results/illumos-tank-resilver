@@ -1,0 +1,65 @@
+{
+  "pool": "tank",
+  "state": "DEGRADED",
+  "reason": "One or more devices is being resilvered.",
+  "action": "Wait for the resilvering process to complete.",
+  "see": "http://illumos.org/msg/ZFS-XXXX-08",
+  "scrub": "none requested",
+  "config": [
+    {
+      "name": "tank",
+      "state": "DEGRADED",
+      "read": 0,
+      "write": 0,
+      "cksum": 0,
+      "type": "pool",
+      "virtual devices": [
+        {
+          "name": "mirror",
+          "state": "DEGRADED",
+          "read": 0,
+          "write": 0,
+          "cksum": 0,
+          "type": "virtual device",
+          "virtual devices": [
+            {
+              "name": "replacing",
+              "state": "DEGRADED",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "message": "52% resilvered",
+              "type": "virtual device",
+              "devices": [
+                {
+                  "name": "c1t0d0",
+                  "state": "ONLINE",
+                  "read": 0,
+                  "write": 0,
+                  "cksum": 0,
+                  "type": "device"
+                },
+                {
+                  "name": "c2t0d0",
+                  "state": "ONLINE",
+                  "read": 0,
+                  "write": 0,
+                  "cksum": 0,
+                  "type": "device"
+                }
+              ]
+            },
+            {
+              "name": "c1t1d0",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "type": "device"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

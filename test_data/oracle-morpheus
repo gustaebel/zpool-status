@@ -1,0 +1,10 @@
+  pool: morpheus
+    id: 1422736890544688191
+ state: FAULTED
+status: The pool metadata is corrupted.
+action: The pool cannot be imported due to damaged devices or data.
+   see: http://www.sun.com/msg/ZFS-8000-72
+config:
+
+        morpheus    FAULTED   corrupted data
+          c1t10d0   ONLINE

@@ -1,0 +1,13 @@
+  pool: tank
+     state: DEGRADED
+     status: One or more devices is currently being resilvered.  The pool will
+             continue to function, possibly in a degraded state.
+     action: Wait for the resilver to complete.
+     see: http://zfsonlinux.org/msg/ZFS-8000-9P
+     config:
+
+             NAME        STATE     READ WRITE CKSUM
+             tank        DEGRADED     0     0     0 
+               mirror-0  DEGRADED     0     0     0
+                 c1t0d0  ONLINE       0     0     0 
+                 c1t1d0  UNAVAIL      0     0     0  (resilvering)

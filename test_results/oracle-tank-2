@@ -1,0 +1,50 @@
+{
+  "pool": "tank",
+  "state": "DEGRADED",
+  "status": "One or more devices could not be opened. Sufficient replicas exist for the pool to continue functioning in a degraded state.",
+  "action": "Attach the missing device and online it using 'zpool online'.",
+  "see": "http://www.sun.com/msg/ZFS-8000-2Q",
+  "scrub": "scrub completed after 0h0m with 0 errors on Wed Jan 20 15:13:59 2010",
+  "config": [
+    {
+      "name": "tank",
+      "state": "DEGRADED",
+      "read": 0,
+      "write": 0,
+      "cksum": 0,
+      "type": "pool",
+      "virtual devices": [
+        {
+          "name": "mirror-0",
+          "state": "DEGRADED",
+          "read": 0,
+          "write": 0,
+          "cksum": 0,
+          "type": "virtual device",
+          "devices": [
+            {
+              "name": "c1t0d0",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "type": "device"
+            },
+            {
+              "name": "c1t1d0",
+              "state": "UNAVAIL",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "message": "cannot open",
+              "type": "device"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [
+    "No known data errors"
+  ]
+}

@@ -1,0 +1,19 @@
+  pool: root
+ state: ONLINE
+status: Some supported and requested features are not enabled on the pool.
+	The pool can still be used, but some features are unavailable.
+action: Enable all features using 'zpool upgrade'. Once this is done,
+	the pool may no longer be accessible by software that does not support
+	the features. See zpool-features(7) for details.
+  scan: scrub in progress since Sun Feb 25 03:44:16 2024
+	107G / 715G scanned at 4.88G/s, 11.6M / 715G issued at 541K/s
+	0B repaired, 0.00% done, no estimated completion time
+config:
+
+	NAME                                                             STATE     READ WRITE CKSUM
+	root                                                             ONLINE       0     0     0
+	  mirror-0                                                       ONLINE       0     0     0
+	    /dev/disk/by-id/nvme-Force_MP510_1850820700012771028C-part4  ONLINE       0     0     0
+	    /dev/disk/by-id/nvme-Force_MP510_18508207000127710062-part4  ONLINE       0     0     0
+
+errors: No known data errors

@@ -1,0 +1,16 @@
+pool: pool
+state: DEGRADED
+status: The pool is formatted using an older on-disk format.  The pool can
+        still be used, but some features are unavailable.
+action: Upgrade the pool using 'zpool upgrade'.  Once this is done, the
+    pool will no longer be accessible on older software versions.
+scrub: none requested
+config:
+
+    NAME                STATE     READ WRITE CKSUM
+    pool                DEGRADED     0     0     0
+      mirror-0          DEGRADED     0     0     0
+        c1t0d0s6        ONLINE       0     0     0
+        replacing-1     UNAVAIL      0     0     0  insufficient replicas
+          c1t1d0s6/old  OFFLINE      0     0     0
+          c1t1d0s6      UNAVAIL      0   342     0  experienced I/O failures

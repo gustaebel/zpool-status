@@ -1,0 +1,18 @@
+  pool: keg2
+ state: ONLINE
+status: One or more devices has experienced an unrecoverable error.  An
+    attempt was made to correct the error.  Applications are unaffected.
+action: Determine if the device needs to be replaced, and clear the errors
+    using 'zpool clear' or replace the device with 'zpool replace'.
+   see: http://zfsonlinux.org/msg/ZFS-8000-9P
+  scan: scrub repaired 448K in 1h26m with 0 errors on Sun Jan 10 01:50:44 2021
+config:
+
+    NAME                                          STATE     READ WRITE CKSUM
+    keg2                                          ONLINE       0     0     0
+      raidz1-0                                    ONLINE       0     0     0
+        ata-WDC_WD20EFRX-68AX9N0_WD-WMC301719728  ONLINE       0     0    12
+        ata-WDC_WD20EFRX-68AX9N0_WD-WMC301719975  ONLINE       0     0     3
+        ata-WDC_WD20EFRX-68EUZN0_WD-WCC4M2TF1P1Y  ONLINE       0     0     3
+
+errors: No known data errors

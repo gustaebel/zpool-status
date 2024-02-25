@@ -1,0 +1,3 @@
+  pool: tank
+     state: ONLINE
+      scan: none requested

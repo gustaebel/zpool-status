@@ -1,0 +1,16 @@
+  pool: monkey
+ state: ONLINE
+status: One or more devices has experienced an error resulting in data
+        corruption.  Applications may be affected.
+action: Restore the file in question if possible.  Otherwise restore the
+        entire pool from backup.
+   see: http://www.sun.com/msg/ZFS-8000-8A
+ scrub: scrub completed after 0h0m with 8 errors on Tue Jul 13 13:17:32 2010
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        monkey      ONLINE       8     0     0
+          c1t1d0    ONLINE       2     0     0
+          c2t5d0    ONLINE       6     0     0
+
+errors: 8 data errors, use '-v' for a list

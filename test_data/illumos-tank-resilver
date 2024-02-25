@@ -1,0 +1,14 @@
+  pool: tank
+ state: DEGRADED
+reason: One or more devices is being resilvered.
+action: Wait for the resilvering process to complete.
+   see: http://illumos.org/msg/ZFS-XXXX-08
+ scrub: none requested
+config:
+        NAME                  STATE     READ WRITE CKSUM 
+        tank                  DEGRADED     0     0     0
+          mirror              DEGRADED     0     0     0
+            replacing         DEGRADED     0     0     0  52% resilvered
+              c1t0d0          ONLINE       0     0     0
+              c2t0d0          ONLINE       0     0     0  
+            c1t1d0            ONLINE       0     0     0

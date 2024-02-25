@@ -1,0 +1,49 @@
+{
+  "pool": "tank",
+  "state": "DEGRADED",
+  "status": "One or more devices has been taken offline by the administrator. Sufficient replicas exist for the pool to continue functioning in a degraded state.",
+  "action": "Online the device using 'zpool online' or replace the device with 'zpool replace'.",
+  "scrub": "resilver completed after 0h0m with 0 errors on Wed Jan 20 15:15:09 2010",
+  "config": [
+    {
+      "name": "tank",
+      "state": "DEGRADED",
+      "read": 0,
+      "write": 0,
+      "cksum": 0,
+      "type": "pool",
+      "virtual devices": [
+        {
+          "name": "mirror-0",
+          "state": "DEGRADED",
+          "read": 0,
+          "write": 0,
+          "cksum": 0,
+          "type": "virtual device",
+          "devices": [
+            {
+              "name": "c1t0d0",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "type": "device"
+            },
+            {
+              "name": "c1t1d0",
+              "state": "OFFLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "message": "48K resilvered",
+              "type": "device"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [
+    "No known data errors"
+  ]
+}

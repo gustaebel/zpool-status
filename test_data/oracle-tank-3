@@ -1,0 +1,17 @@
+  pool: tank
+ state: DEGRADED
+status: One or more devices has been taken offline by the administrator.
+        Sufficient replicas exist for the pool to continue functioning in a
+        degraded state.
+action: Online the device using 'zpool online' or replace the device with
+        'zpool replace'.
+ scrub: resilver completed after 0h0m with 0 errors on Wed Jan 20 15:15:09 2010
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        tank        DEGRADED     0     0     0
+          mirror-0  DEGRADED     0     0     0
+            c1t0d0  ONLINE       0     0     0
+            c1t1d0  OFFLINE      0     0     0  48K resilvered
+
+errors: No known data errors

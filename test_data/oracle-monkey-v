@@ -1,0 +1,22 @@
+   pool: monkey
+state: ONLINE
+status: One or more devices has experienced an error resulting in data
+         corruption.  Applications may be affected.
+action: Restore the file in question if possible.  Otherwise restore the
+         entire pool from backup.
+    see: http://illumos.org/msg/ZFS-8000-8A
+scrub: none requested
+config:
+
+         NAME        STATE     READ WRITE CKSUM
+         monkey      ONLINE       0     0     0
+           c1t1d0s6  ONLINE       0     0     0
+           c1t1d0s7  ONLINE       0     0     0
+
+errors: Permanent errors have been detected in the following files: 
+
+/monkey/a.txt
+/monkey/bananas/b.txt
+/monkey/sub/dir/d.txt
+/monkey/ghost/e.txt
+/monkey/ghost/boo/f.txt

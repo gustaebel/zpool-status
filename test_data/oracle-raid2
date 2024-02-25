@@ -1,0 +1,20 @@
+  pool: raid2
+ state: ONLINE
+status: One or more devices has experienced an unrecoverable error.  An
+    attempt was made to correct the error.  Applications are unaffected.
+action: Determine if the device needs to be replaced, and clear the errors
+    using 'zpool clear' or replace the device with 'zpool replace'.
+   see: http://www.sun.com/msg/ZFS-8000-9P
+ scrub: none requested
+config:
+
+    NAME                                            STATE     READ WRITE CKSUM
+    raid2                                           ONLINE       0     0     0
+      raidz1                                        ONLINE       0     0     0
+        gptid/5f3c0517-3ff2-11e2-9437-f46d049aaeca  ONLINE       0     0     0
+        gptid/5fe33556-3ff2-11e2-9437-f46d049aaeca  ONLINE       3 1.13M     0
+        gptid/60570005-3ff2-11e2-9437-f46d049aaeca  ONLINE       0     0     0
+        gptid/60ebeaa5-3ff2-11e2-9437-f46d049aaeca  ONLINE       0     0     0
+        gptid/61925b86-3ff2-11e2-9437-f46d049aaeca  ONLINE       0     0     0
+
+errors: No known data errors

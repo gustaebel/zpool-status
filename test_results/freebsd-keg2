@@ -1,0 +1,59 @@
+{
+  "pool": "keg2",
+  "state": "ONLINE",
+  "status": "One or more devices has experienced an unrecoverable error. An attempt was made to correct the error. Applications are unaffected.",
+  "action": "Determine if the device needs to be replaced, and clear the errors using 'zpool clear' or replace the device with 'zpool replace'.",
+  "see": "http://zfsonlinux.org/msg/ZFS-8000-9P",
+  "scan": [
+    "scrub repaired 448K in 1h26m with 0 errors on Sun Jan 10 01:50:44 2021"
+  ],
+  "config": [
+    {
+      "name": "keg2",
+      "state": "ONLINE",
+      "read": 0,
+      "write": 0,
+      "cksum": 0,
+      "type": "pool",
+      "virtual devices": [
+        {
+          "name": "raidz1-0",
+          "state": "ONLINE",
+          "read": 0,
+          "write": 0,
+          "cksum": 0,
+          "type": "virtual device",
+          "devices": [
+            {
+              "name": "ata-WDC_WD20EFRX-68AX9N0_WD-WMC301719728",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 12,
+              "type": "device"
+            },
+            {
+              "name": "ata-WDC_WD20EFRX-68AX9N0_WD-WMC301719975",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 3,
+              "type": "device"
+            },
+            {
+              "name": "ata-WDC_WD20EFRX-68EUZN0_WD-WCC4M2TF1P1Y",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 3,
+              "type": "device"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [
+    "No known data errors"
+  ]
+}
