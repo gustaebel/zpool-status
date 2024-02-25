@@ -2,6 +2,9 @@
 
 import setuptools
 
+with open("README.md") as fobj:
+    long_description = fobj.read()
+
 kwargs = {
     "name":         "zpool-status",
     "version":      "0.1",
@@ -9,6 +12,8 @@ kwargs = {
     "author_email": "lars@gustaebel.de",
     "url":          "https://github.com/gustaebel/zpool-status/",
     "description":  "Parse output from zpool status",
+    "long_description": long_description,
+    "long_description_content_type": "text/markdown",
     "license":      "BSD",
     "classifiers":  ["Development Status :: 3 - Alpha",
                      "Environment :: Console",

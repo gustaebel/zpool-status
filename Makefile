@@ -4,3 +4,13 @@ test:
 lint:
 	@pylint zpool_status.py
 
+clean:
+	rm -rf build dist
+	rm -rf *.egg-info
+	rm -rf __pycache__
+
+create-pypi-pkgs: lint test clean
+	python setup.py sdist
+
+upload: create-pypi-pkgs
+	twine upload -r pypi dist/*
