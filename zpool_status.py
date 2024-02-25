@@ -133,17 +133,18 @@ class ZPool:
         """Convert a number string to an integer.
         """
         multiplier = 1
-        match value[-1]:
-            case "K":
-                multiplier = 1024
-            case "M":
-                multiplier = 1024**2
-            case "G":
-                multiplier = 1024**3
-            case "T":
-                multiplier = 1024**4
+        if value[-1] == "K":
+            multiplier = 1024
+        elif value[-1] == "M":
+            multiplier = 1024**2
+        elif value[-1] == "G":
+            multiplier = 1024**3
+        elif value[-1] == "T":
+            multiplier = 1024**4
+        elif value[-1] == "P":
+            multiplier = 1024**5
 
-        value = value.rstrip("KMGT")
+        value = value.rstrip("KMGTP")
         return int(float(value) * multiplier)
 
     def _detect_indent(self, line):
