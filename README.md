@@ -1,6 +1,29 @@
-# zpool-status
+# zpool_status.py
 
 Parse output from `zpool-status(1)`.
+
+## About
+
+The `zpool_status.py` Python module calls the `zpool status` command, parses
+its output and returns the information as a dictionary.
+
+## Install
+
+Install `zpool_status.py` using pip:
+
+```sh
+$ pip install zpool-status
+```
+
+## Command-line interface
+
+`zpool_status.py` provides a limited command-line interface. For each pool name
+argument it prints the pool information as a json object. When called with no
+arguments, it prints pool information for all imported pools.
+
+```sh
+$ python -m zpool_status tank
+```
 
 ## Example
 
