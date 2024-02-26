@@ -26,12 +26,11 @@ to the one of `zpool-status(1)`. The only difference is that `zpool-status`
 produces JSON output.
 
 ```
-zpool-status [-c [script1[,script2]...]] [-igLpPstvx] [-T d|u] [pool] ... [interval [count]]
+zpool-status [-c [script1[,script2]...]] [-igLpPstv] [-T d|u] [pool] ... [interval [count]]
 ```
 
 > [!NOTE]
-> The `-D` option that produces deduplication statistics is currently not
-> supported.
+> The `-D` and `-x` options are not supported.
 
 ## Example
 

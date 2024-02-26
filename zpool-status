@@ -83,7 +83,7 @@ def main(args):
 
 
 parser = argparse.ArgumentParser( add_help=False, prog=os.path.basename(sys.argv[0]),
-        usage="%(prog)s [-c [script1[,script2]...]] [-igLpPstvx] [-T d|u] "\
+        usage="%(prog)s [-c [script1[,script2]...]] [-igLpPstv] [-T d|u] "\
               "[pool] ... [interval [count]]")
 parser.add_argument("-c", action="store", dest="scripts")
 for option in "igLpPstv":
