@@ -7,7 +7,7 @@ with open("README.md") as fobj:
 
 kwargs = {
     "name":         "zpool-status",
-    "version":      "0.1",
+    "version":      "0.2",
     "author":       "Lars Gustäbel",
     "author_email": "lars@gustaebel.de",
     "url":          "https://github.com/gustaebel/zpool-status/",
@@ -28,7 +28,8 @@ kwargs = {
                      "Topic :: Utilities",
                      "Programming Language :: Python :: 3"],
     "python_requires": ">=3.7",
-    "py_modules":   ["zpool_status"]
+    "py_modules":   ["zpool_status"],
+    "scripts":      ["zpool-status"]
 }
 
 setuptools.setup(**kwargs)

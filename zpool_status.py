@@ -38,11 +38,13 @@ class ZPool:
 
     virtual_devices = ("mirror", "raidz", "draid", "spare", "logs", "dedup", "special", "cache",
                        "replacing")
-    options = ["-v", "-p", "-c", "lsblk"]
+    default_options = ["-v", "-p", "-c", "lsblk"]
 
-    def __init__(self, name, check_name=True):
+    def __init__(self, name, options=None, check_name=True):
         if check_name and name not in self.list_names():
             raise MissingPoolError(f"pool {name!r} does not exist")
+
+        self.options = options if options is not None else self.default_options
         self.name = name
 
     @classmethod
@@ -293,23 +295,7 @@ class ZPool:
         return config
 
 
-def main():
-    """A small command-line interface useful for testing.
-    """
-    names = sys.argv[1:]
-    if not names:
-        names = ZPool.list_names()
-
-    for name in names:
-        try:
-            status = ZPool(name).get_status()
-        except MissingPoolError:
-            # This is just for testing purposes.
-            with open(name, encoding=sys.getfilesystemencoding()) as fobj:
-                output = fobj.read()
-            status = ZPool.get_status_from_output(output)
-
-        print(json.dumps(status, indent=2))
-
 if __name__ == "__main__":
-    main()
+    # Read zpool status output from stdin. This is just for testing purposes.
+    status = ZPool.get_status_from_output(sys.stdin.read())
+    print(json.dumps(status, indent=2))

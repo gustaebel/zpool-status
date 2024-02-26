@@ -1,15 +1,19 @@
-# zpool_status.py
+# zpool-status
 
-Parse output from `zpool-status(1)`.
+Parse output from the `zpool status` ZFS command in Python.
 
 ## About
 
-The `zpool_status.py` Python module calls the `zpool status` command, parses
-its output and returns the information as a dictionary.
+This project contains:
+
+1. A Python module `zpool_status.py` that converts `zpool status` output into a
+   Python datastructure.
+2. A Python script `zpool-status` that serves as a drop-in replacement
+   for the `zpool status` command that produces JSON output.
 
 ## Install
 
-Install `zpool_status.py` using pip:
+Install `zpool-status` using pip:
 
 ```sh
 $ pip install zpool-status
@@ -17,17 +21,23 @@ $ pip install zpool-status
 
 ## Command-line interface
 
-`zpool_status.py` provides a limited command-line interface. For each pool name
-argument it prints the pool information as a json object. When called with no
-arguments, it prints pool information for all imported pools.
+The `zpool-status` script provides a command-line interface that is identical
+to the one of `zpool-status(1)`. The only difference is that `zpool-status`
+produces JSON output.
 
-```sh
-$ python -m zpool_status tank
 ```
+zpool-status [-c [script1[,script2]...]] [-igLpPstvx] [-T d|u] [pool] ... [interval [count]]
+```
+
+> [!NOTE]
+> The `-D` option that produces deduplication statistics is currently not
+> supported.
 
 ## Example
 
-```sh
+Suppose we get the following output from `zpool status`:
+
+```
 $ zpool status -v tank
   pool: tank
  state: UNAVAIL
@@ -49,14 +59,25 @@ errors: Permanent errors have been detected in the following files:
 /tank/data/ccc
 ```
 
-```python
-import zpool_status
+The following shell command line:
 
-zpool = ZPool("tank")
+```sh
+$ zpool-status -v tank
+```
+
+is identical to the this Python code:
+
+```python
+import json
+from zpool_status import ZPool
+
+zpool = ZPool("tank", options=["-v"])
 status = zpool.get_status()
 
 print(json.dumps(status, indent=2))
 ```
+
+Both produce this output:
 
 ```json
 {

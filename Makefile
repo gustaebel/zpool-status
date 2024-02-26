@@ -2,7 +2,7 @@ test:
 	@python3 test_zpool_status.py
 
 lint:
-	@pylint zpool_status.py
+	@pylint zpool_status.py zpool-status
 
 clean:
 	rm -rf build dist

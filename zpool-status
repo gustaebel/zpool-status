@@ -1,0 +1,100 @@
+#!/usr/bin/env python
+#
+# Cp. zpool-status(1)
+#
+# Copyright (c) 2024, Lars Gustäbel <lars@gustaebel.de>
+
+# NOTE: -D is currently not supported.
+
+# pylint:disable=invalid-name,missing-module-docstring,redefined-outer-name
+
+import os
+import sys
+import json
+import time
+import argparse
+
+from zpool_status import ZPool, MissingPoolError
+
+
+def prepare_options(args):
+    """Prepare short options to pass to 'zpool status'.
+    """
+    options = []
+    if args.scripts:
+        options.append("-c")
+        options.append(args.scripts)
+
+    if args.options:
+        for option in args.options:
+            options.append(f"-{option}")
+
+    return options
+
+
+def prepare_arguments(args):
+    """Parse command line arguments: [pool] ... [interval [count]].
+    """
+    try:
+        interval = float(args.args[-2])
+        count = int(args.args[-1])
+    except (IndexError, ValueError):
+        try:
+            interval = float(args.args[-1])
+        except (IndexError, ValueError):
+            names = args.args
+            interval = 0
+            count = 1
+        else:
+            names = args.args[:-1]
+            count = sys.maxsize
+    else:
+        names = args.args[:-2]
+
+    # In case of no pool names use all imported pools.
+    if not names:
+        names = ZPool.list_names()
+
+    return names, interval, count
+
+
+def main(args):
+    """The main function of zpool_status.
+    """
+
+    options = prepare_options(args)
+    names, interval, count = prepare_arguments(args)
+
+    for _ in range(count):
+        for name in names:
+            try:
+                status = ZPool(name, options=options).get_status()
+            except MissingPoolError as exc:
+                raise SystemExit(f"cannot open {name!r}: no such pool") from exc
+
+            if args.timestamp == "d":
+                status = {"timestamp": time.asctime()} | status
+            elif args.timestamp == "u":
+                status = {"timestamp": int(time.time())} | status
+
+            print(json.dumps(status, indent=2), flush=True)
+
+        time.sleep(interval)
+
+
+parser = argparse.ArgumentParser( add_help=False, prog=os.path.basename(sys.argv[0]),
+        usage="%(prog)s [-c [script1[,script2]...]] [-igLpPstvx] [-T d|u] "\
+              "[pool] ... [interval [count]]")
+parser.add_argument("-c", action="store", dest="scripts")
+for option in "igLpPstv":
+    parser.add_argument(f"-{option}", action="append_const", const=option, dest="options")
+parser.add_argument("-T", action="store", choices=("d", "u"), dest="timestamp")
+parser.add_argument("args", nargs="*")
+args = parser.parse_args()
+
+try:
+    main(args)
+except KeyboardInterrupt as exc:
+    raise SystemExit("keyboard interrupt!") from exc
+except BrokenPipeError:
+    pass

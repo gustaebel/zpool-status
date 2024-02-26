@@ -5,9 +5,14 @@ import difflib
 
 from zpool_status import ZPool
 
-for name in os.listdir("test_data"):
-    test_path = os.path.join("test_data", name)
-    result_path = os.path.join("test_results", name)
+DATADIR = "test_data"
+RESULTSDIR = "test_results"
+
+for name in sorted(os.listdir(DATADIR)):
+    test_path = os.path.join(DATADIR, name)
+    result_path = os.path.join(RESULTSDIR, name)
+
+    print(test_path)
 
     with open(test_path) as fobj:
         output = ZPool.get_status_from_output(fobj.read())
