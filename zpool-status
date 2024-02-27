@@ -13,6 +13,7 @@ import sys
 import json
 import time
 import argparse
+import subprocess
 
 from zpool_status import ZPool, MissingPoolError
 
@@ -94,6 +95,8 @@ args = parser.parse_args()
 
 try:
     main(args)
+except subprocess.CalledProcessError as exc:
+    sys.exit(exc.returncode)
 except KeyboardInterrupt as exc:
     raise SystemExit("keyboard interrupt!") from exc
 except BrokenPipeError:

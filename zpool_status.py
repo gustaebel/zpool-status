@@ -38,13 +38,13 @@ class ZPool:
 
     virtual_devices = ("mirror", "raidz", "draid", "spare", "logs", "dedup", "special", "cache",
                        "replacing")
-    default_options = ["-v", "-p", "-c", "lsblk"]
 
-    def __init__(self, name, options=None, check_name=True):
+    def __init__(self, name, options=None, check_name=True, zpool_scripts_as_root=False):
         if check_name and name not in self.list_names():
             raise MissingPoolError(f"pool {name!r} does not exist")
 
-        self.options = options if options is not None else self.default_options
+        self.options = options if options is not None else []
+        self.zpool_scripts_as_root = zpool_scripts_as_root
         self.name = name
 
     @classmethod
@@ -92,8 +92,9 @@ class ZPool:
     def get_status_output(self):
         """Return the output of 'zpool status <name>' as a string.
         """
+        env = {"ZPOOL_SCRIPTS_AS_ROOT": "1"} if self.zpool_scripts_as_root else {}
         return subprocess.check_output(["zpool", "status"] + self.options + [self.name],
-                                       text=True)
+                                       text=True, env=env)
 
     def parse_status_output(self, output):
         """Parse output from 'zpool status <pool>' and return a dictionary.
