@@ -7,7 +7,7 @@ with open("README.md") as fobj:
 
 kwargs = {
     "name":         "zpool-status",
-    "version":      "0.2.1",
+    "version":      "0.2.2",
     "author":       "Lars Gustäbel",
     "author_email": "lars@gustaebel.de",
     "url":          "https://github.com/gustaebel/zpool-status/",
