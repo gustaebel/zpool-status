@@ -30,6 +30,7 @@ class DeviceState(enum.StrEnum):
     ONLINE = "ONLINE"
     REMOVED = "REMOVED"
     UNAVAIL = "UNAVAIL"
+    SUSPENDED = "SUSPENDED"
 
 
 class ZPool:
