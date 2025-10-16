@@ -2,6 +2,9 @@
 
 Parse output from the `zpool status` ZFS command in Python.
 
+> [!NOTE]
+> OpenZFS supports JSON output since version 2.3, so this project is more or less obsolete.
+
 ## About
 
 This project contains:
