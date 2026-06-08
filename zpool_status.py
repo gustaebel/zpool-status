@@ -21,7 +21,14 @@ class MissingPoolError(Exception):
 
 DeviceRow = collections.namedtuple("DeviceRow", "indent name data")
 
-class DeviceState(enum.StrEnum):
+try:
+    StrEnum = enum.StrEnum
+except AttributeError:
+    # Python < 3.11
+    class StrEnum(str, enum.Enum):
+        pass
+
+class DeviceState(StrEnum):
     """Device health/state.
     """
     DEGRADED = "DEGRADED"
