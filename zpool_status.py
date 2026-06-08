@@ -26,6 +26,7 @@ try:
 except AttributeError:
     # Python < 3.11
     class StrEnum(str, enum.Enum):
+        # pylint:disable=missing-class-docstring
         pass
 
 class DeviceState(StrEnum):
