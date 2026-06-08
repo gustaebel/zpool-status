@@ -38,6 +38,7 @@ class DeviceState(StrEnum):
     REMOVED = "REMOVED"
     UNAVAIL = "UNAVAIL"
     SUSPENDED = "SUSPENDED"
+    AVAIL = "AVAIL"
 
 
 class ZPool:

@@ -1,0 +1,62 @@
+{
+  "pool": "neo",
+  "state": "ONLINE",
+  "scrub": "none requested",
+  "config": [
+    {
+      "name": "neo",
+      "state": "ONLINE",
+      "read": 0,
+      "write": 0,
+      "cksum": 0,
+      "type": "pool",
+      "virtual devices": [
+        {
+          "name": "mirror-0",
+          "state": "ONLINE",
+          "read": 0,
+          "write": 0,
+          "cksum": 0,
+          "type": "virtual device",
+          "devices": [
+            {
+              "name": "c3t3d0",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "type": "device"
+            },
+            {
+              "name": "c4t3d0",
+              "state": "ONLINE",
+              "read": 0,
+              "write": 0,
+              "cksum": 0,
+              "type": "device"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "spares",
+      "type": "virtual device",
+      "devices": [
+        {
+          "name": "c5t3d0",
+          "state": "AVAIL",
+          "type": "device"
+        },
+        {
+          "name": "c6t3d0",
+          "state": "AVAIL",
+          "type": "device"
+        }
+      ]
+    }
+  ],
+  "errors": [
+    "No known data errors"
+  ]
+}

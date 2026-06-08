@@ -1,0 +1,15 @@
+  pool: neo
+ state: ONLINE
+ scrub: none requested
+config:
+
+        NAME        STATE     READ WRITE CKSUM
+        neo         ONLINE       0     0     0
+          mirror-0  ONLINE       0     0     0
+            c3t3d0  ONLINE       0     0     0
+            c4t3d0  ONLINE       0     0     0
+        spares
+          c5t3d0    AVAIL   
+          c6t3d0    AVAIL   
+
+errors: No known data errors
